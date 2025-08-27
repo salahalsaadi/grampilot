@@ -9,7 +9,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const { user, ready } = useAuth()
   const pathname = usePathname()
   const router = useRouter()
-  const isLogin = pathname === '/login'
+  const isLogin = pathname === '/login' || pathname === '/register'
 
   useEffect(() => {
     if (ready && !user && !isLogin) router.replace('/login')

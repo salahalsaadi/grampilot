@@ -18,12 +18,12 @@ export function useAuth() {
 
   function login(email: string, _password: string) {
     const u = { email }
-    localStorage.setItem(KEY, JSON.stringify(u))
+    try { localStorage.setItem(KEY, JSON.stringify(u)) } catch {}
     setUser(u)
   }
 
   function logout() {
-    localStorage.removeItem(KEY)
+    try { localStorage.removeItem(KEY) } catch {}
     setUser(null)
   }
 

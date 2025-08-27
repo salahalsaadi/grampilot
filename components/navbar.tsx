@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { MessagesSquare, Workflow, Radio, Users, Megaphone, LayoutDashboard, LogOut } from 'lucide-react'
 import clsx from 'clsx'
 import { Logo } from '@/components/Logo'
@@ -8,6 +8,7 @@ import { useAuth } from '@/components/useAuth'
 
 export function NavBar() {
   const pathname = usePathname()
+  const router = useRouter()
   const { user, logout } = useAuth()
   const links = [
     { href: '/', label: 'Dashboard', icon: LayoutDashboard },
@@ -38,7 +39,9 @@ export function NavBar() {
         {user && (
           <div className="ml-2 flex items-center gap-2 text-sm">
             <span className="badge">{user.email}</span>
-            <button className="btn" onClick={logout}><LogOut size={16}/> Uitloggen</button>
+            <button className="btn" onClick={() => { logout(); router.replace('/login'); }}>
+              <LogOut size={16}/> Uitloggen
+            </button>
           </div>
         )}
       </div>
