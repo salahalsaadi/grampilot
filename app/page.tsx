@@ -1,5 +1,6 @@
 'use client'
 import { useLocalJson } from '@/components/useLocalJson'
+import Link from 'next/link'
 
 export default function Page() {
   const [stats] = useLocalJson('stats', { contacts: 128, active24h: 46, flows: 3, broadcasts: 1 })
@@ -24,11 +25,15 @@ export default function Page() {
       <div className="card p-6 md:col-span-4">
         <div className="font-semibold mb-2">Snelstart</div>
         <ol className="list-decimal ml-6 space-y-1 text-neutral-700">
-          <li>Voeg een kanaal toe onder <b>Channels</b> (mock, meerdere IG-accounts mogelijk).</li>
+          <li>Voeg een kanaal toe onder <b>Channels</b> (mock, meerdere IG-accounts).</li>
           <li>Maak een flow onder <b>Flows</b>.</li>
-          <li>Open <b>Inbox</b> en test een automatische reply met de simulator.</li>
-          <li>Stuur een <b>Broadcast</b> (alleen contacten ≤24u toegestaan).</li>
+          <li>Open <b>Inbox</b> en test een automatische reply (simulator).</li>
+          <li>Stuur een <b>Broadcast</b> (alleen contacten ≤24u).</li>
         </ol>
+        <div className="mt-4 flex gap-2">
+          <Link className="btn btn-brand" href="/channels">Connect Instagram</Link>
+          <Link className="btn" href="/flows">Nieuwe flow</Link>
+        </div>
       </div>
     </div>
   )

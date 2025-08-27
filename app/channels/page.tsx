@@ -51,7 +51,7 @@ export default function Channels() {
           Hier verschijnt straks de echte Meta Login. Tot die tijd kun je mock-kanalen gebruiken.
         </p>
         <div className="mt-3 flex gap-2">
-          <button className="btn btn-brand" disabled>Login met Facebook (uitgeschakeld)</button>
+          <button className="btn btn-primary" disabled>Login met Facebook (uitgeschakeld)</button>
           <a className="btn" href="https://developers.facebook.com/docs/instagram-api" target="_blank" rel="noreferrer">Documentatie</a>
         </div>
       </div>

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MessagesSquare, Workflow, Radio, Users, Megaphone, LayoutDashboard } from 'lucide-react'
 import clsx from 'clsx'
+import { Logo } from '@/components/Logo'
 
 export function NavBar() {
   const pathname = usePathname()
@@ -16,9 +17,11 @@ export function NavBar() {
   ]
   return (
     <div className="bg-white border-b">
-      <div className="container flex items-center gap-2 py-3">
-        <div className="font-semibold text-lg">GramPilot</div>
-        <nav className="flex gap-1 ml-6">
+      <div className="container flex items-center gap-4 py-3">
+        <Link href="/" className="text-[var(--brand)]">
+          <Logo />
+        </Link>
+        <nav className="flex gap-1 ml-auto">
           {links.map((l) => {
             const Icon = l.icon
             const active = pathname === l.href
@@ -29,6 +32,7 @@ export function NavBar() {
             )
           })}
         </nav>
+        <Link href="/channels" className="btn btn-primary">Connect Instagram</Link>
       </div>
     </div>
   )
