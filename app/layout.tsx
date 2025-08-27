@@ -5,11 +5,6 @@ import { NavBar } from '@/components/navbar'
 import { useAuth } from '@/components/useAuth'
 import { usePathname, useRouter } from 'next/navigation'
 
-export const metadata = {
-  title: 'GramPilot — Instagram Automation',
-  description: 'Bouw DM-flows, labels en broadcasts sneller dan ManyChat (simulator mode).',
-}
-
 export default function RootLayout({ children }: { children: ReactNode }) {
   const { user, ready } = useAuth()
   const pathname = usePathname()
